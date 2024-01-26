@@ -1,0 +1,42 @@
+[
+  {
+    "id": "string",
+    "number": "1",
+    "bedQuantity": 1,
+    "description": "string",
+    "type": "Solteiro",
+    "dailyRate": 10.0
+  },
+  {
+    "id": "string",
+    "number": "2",
+    "bedQuantity": 1,
+    "description": "string",
+    "type": "Solteiro",
+    "dailyRate": 10.0
+  },
+  {
+    "id": "string",
+    "number": "2",
+    "bedQuantity": 1,
+    "description": "string",
+    "type": "Solteiro",
+    "dailyRate": 10.0
+  },
+  {
+    "id": "string",
+    "number": "2",
+    "bedQuantity": 1,
+    "description": "string",
+    "type": "Solteiro",
+    "dailyRate": 10.0
+  },
+  {
+    "id": "string",
+    "number": "2",
+    "bedQuantity": 1,
+    "description": "string",
+    "type": "Solteiro",
+    "dailyRate": 10.0
+  }
+]
