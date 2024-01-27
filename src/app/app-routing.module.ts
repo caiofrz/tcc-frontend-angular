@@ -6,7 +6,8 @@ const routes: Routes = [
     path: 'quartos',
     loadChildren: () =>
       import('./pages/rooms/rooms.module').then((m) => m.RoomsModule),
-  },
+    data: { breadcrumb: "Quartos" },
+  }
 ];
 
 @NgModule({
