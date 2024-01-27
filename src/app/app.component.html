@@ -1,9 +1,36 @@
 <mat-toolbar color="accent">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="space"></span>
   <img src="../favicon.ico" alt="Logo" />
 </mat-toolbar>
 
-<app-side-bar></app-side-bar>
-
-<mat-card>
-  <router-outlet></router-outlet>
-</mat-card>
+<mat-drawer-container>
+  <mat-drawer #drawer [mode]="'side'" [opened]="'true'">
+    <div
+      class="sidebar-item"
+      *ngFor="let item of sidebarItems"
+      routerLink="{{ item.route }}"
+    >
+      <mat-icon class="material-icons-outlined" color="primary">
+        {{ item.icon }}
+      </mat-icon>
+      <span>{{ item.name }}</span>
+    </div>
+    <div class="space"></div>
+    <div class="sidebar-item exit">
+      <mat-icon class="material-icons-outlined exit" color="primary"
+        >exit_to_app</mat-icon
+      >
+      <span>Sair</span>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <main>
+      <mat-card>
+        <router-outlet></router-outlet>
+      </mat-card>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>
