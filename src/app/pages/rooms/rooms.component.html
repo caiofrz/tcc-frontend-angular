@@ -5,7 +5,7 @@
 </ng-template>
 
 <div *ngIf="rooms$ | async as rooms; else loading">
-    <table mat-table [dataSource]="rooms">
+    <table mat-table [dataSource]="rooms.data">
       <ng-container matColumnDef="number">
         <th mat-header-cell *matHeaderCellDef>Número</th>
         <td mat-cell *matCellDef="let room">{{ room.number }}</td>
@@ -23,7 +23,7 @@
 
       <ng-container matColumnDef="dailyRate">
         <th mat-header-cell *matHeaderCellDef>Valor da diária</th>
-        <td mat-cell *matCellDef="let room">{{ room.dailyRate }}</td>
+        <td mat-cell *matCellDef="let room">{{ room.dailyRate | currency:'BRL' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
@@ -57,8 +57,12 @@
     <mat-paginator
       [pageSizeOptions]="[5, 10, 20]"
       showFirstLastButtons
-      aria-label="Select page of periodic elements"
+      aria-label="Selecione a página de pesquisa"
       color="primary"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+      [length]="rooms.totalElements"
+      (page)="refresh($event)"
     >
     </mat-paginator>
   </div>
