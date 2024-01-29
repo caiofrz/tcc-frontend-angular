@@ -11,7 +11,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [RoomsComponent, TableComponent],
   imports: [
@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     HttpClientModule,
     BreadcrumbModule,
+    MatButtonModule
   ],
   providers: [BreadcrumbService],
 })
