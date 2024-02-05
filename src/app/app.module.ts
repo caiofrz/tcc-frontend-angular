@@ -8,15 +8,21 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { RoomsModule } from './pages/rooms/rooms.module';
 import { AppMaterialModule } from './shared/modules/app-material/app-material.module';
 import { AppPrimengModule } from './shared/modules/app-primeng/app-primeng.module';
-
+import { ToastrModule } from 'ngx-toastr';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 @NgModule({
-  declarations: [AppComponent, DialogComponent],
+  declarations: [AppComponent, DialogComponent, ConfirmDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
     AppPrimengModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     RoomsModule,
   ],
   providers: [],
