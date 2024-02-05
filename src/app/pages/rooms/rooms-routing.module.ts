@@ -7,6 +7,13 @@ const routes: Routes = [
     path: '',
     component: RoomsComponent,
   },
+  {
+    path: 'novo',
+    loadChildren: () =>
+      import('../new-room/new-room.module').then((m) => m.NewRoomModule),
+      data: { breadcrumb: 'Cadastrar quarto' },
+
+  },
 ];
 
 @NgModule({

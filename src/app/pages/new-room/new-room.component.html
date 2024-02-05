@@ -1,1 +1,11 @@
-<p>new-room works!</p>
+<header>
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+  <ng-template #iconTemplate>
+    <mat-icon>chevron_right</mat-icon>
+  </ng-template>
+  <div class="space"></div>
+  <button mat-raised-button color="primary" [routerLink]="['novo']">
+    Cadastrar novo quarto
+  </button>
+</header>
+<app-room-form btnText="Cadastrar" (onSubmit)="submitHandler($event)"></app-room-form>
