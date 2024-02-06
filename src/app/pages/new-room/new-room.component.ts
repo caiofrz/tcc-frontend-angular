@@ -21,12 +21,16 @@ export class NewRoomComponent {
 
   async submitHandler(room: Room) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: 'Você está cadastrando um novo quarto... Certifique-se de que as informação inseridas estão corretas',
+      data: {
+        icon: 'check_circle',
+        title: 'Você está cadastrando um novo quarto...',
+        content: 'Certifique-se de que as informação inseridas estão corretas',
+      },
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (!result) return;
-      
+
       console.log(room);
       this.roomService.save(room).subscribe(
         (data) => {
