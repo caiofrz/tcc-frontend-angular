@@ -19,9 +19,10 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     AppMaterialModule,
     AppPrimengModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 5000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
+      progressBar: true,
     }),
     RoomsModule,
   ],
