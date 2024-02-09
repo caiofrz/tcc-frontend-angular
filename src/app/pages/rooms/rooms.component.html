@@ -35,7 +35,7 @@
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let room">
         <mat-icon
           class="material-icons-outlined exit"
           color="primary"
@@ -46,6 +46,7 @@
           class="material-icons-outlined exit"
           color="primary"
           style="cursor: pointer; font-size: 1.5em"
+          [routerLink]="'atualizar/' + room.id"
           >edit</mat-icon
         >
         <mat-icon
