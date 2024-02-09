@@ -3,8 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { MenuItem } from 'primeng/api';
 import { Observable, catchError, first, of, tap } from 'rxjs';
+import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { PageResponse } from 'src/app/interfaces/PageResponse';
 import { Room } from 'src/app/interfaces/Room';
@@ -28,6 +30,8 @@ export class RoomsComponent {
     private service: RoomsService,
     public dialog: MatDialog,
     private breadcrumbService: BreadcrumbService,
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.breadcrumbService.set('@ChildOne', 'Child One');
     this.refresh();
@@ -57,6 +61,31 @@ export class RoomsComponent {
   openDialogError(error: string) {
     this.dialog.open(DialogComponent, {
       data: error,
+    });
+  }
+
+  delete(id: string) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        icon: 'report',
+        title: 'Você está excluindo um cadastro...',
+        content: 'Tem certeza que deseja excluir o cadastro deste quarto?',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (!result) return;
+
+      this.service.delete(id).subscribe(
+        (data) => {
+          this.toastr.success('Quarto excluído com sucesso!');
+          this.router.navigate(['quartos']);
+        },
+        (error) => {
+          console.log(error);
+          this.toastr.error('Erro na exclusão do cadastro!');
+        }
+      );
     });
   }
 }
