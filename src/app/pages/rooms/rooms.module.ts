@@ -8,9 +8,10 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from '../../shared/modules/app-material/app-material.module';
+import { ModalInfoRoomComponent } from 'src/app/components/modals-info/modal-info-room/modal-info-room.component';
 
 @NgModule({
-  declarations: [RoomsComponent, TableComponent],
+  declarations: [RoomsComponent, TableComponent, ModalInfoRoomComponent],
   imports: [
     CommonModule,
     RoomsRoutingModule,

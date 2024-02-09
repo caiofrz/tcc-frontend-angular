@@ -1,13 +1,12 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { MenuItem } from 'primeng/api';
-import { Observable, catchError, first, of, tap } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { ModalInfoRoomComponent } from 'src/app/components/modals-info/modal-info-room/modal-info-room.component';
 import { PageResponse } from 'src/app/interfaces/PageResponse';
 import { Room } from 'src/app/interfaces/Room';
 import { RoomsService } from 'src/app/services/rooms.service';
@@ -86,6 +85,13 @@ export class RoomsComponent {
           this.toastr.error('Erro na exclusão do cadastro!');
         }
       );
+    });
+  }
+
+  showInfos(room: Room) {
+    this.dialog.open(ModalInfoRoomComponent, {
+      width: '25%',
+      data: room,
     });
   }
 }
