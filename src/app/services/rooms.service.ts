@@ -17,7 +17,7 @@ export class RoomsService {
 
   findAll(page = 0, pageSize = 10) {
     return this.http
-      .get<PageResponse>(this.endpoint, {
+      .get<PageResponse>('/assets/rooms.json', {
         params: { page, size: pageSize },
       })
       .pipe(
@@ -27,8 +27,19 @@ export class RoomsService {
       );
   }
 
+  findOne(id: string) {
+    return this.http.get<Room>(`${this.endpoint}/${id}`);
+  }
+
   save(room: Room) {
-    console.log(room);
     return this.http.post<Room>(this.endpoint, room);
+  }
+
+  update(room: Room, id: string) {
+    return this.http.put<Room>(`${this.endpoint}/${id}`, room);
+  }
+
+  delete(id: string){
+    return this.http.delete<Room>(`${this.endpoint}/${id}`)
   }
 }
