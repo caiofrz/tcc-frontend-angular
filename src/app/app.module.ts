@@ -10,6 +10,7 @@ import { AppMaterialModule } from './shared/modules/app-material/app-material.mo
 import { AppPrimengModule } from './shared/modules/app-primeng/app-primeng.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ComponentsModule } from './shared/modules/components/components.module';
 @NgModule({
   declarations: [AppComponent, DialogComponent, ConfirmDialogComponent],
   imports: [
@@ -25,6 +26,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
       progressBar: true,
     }),
     RoomsModule,
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

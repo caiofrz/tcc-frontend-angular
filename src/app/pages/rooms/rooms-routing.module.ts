@@ -11,8 +11,13 @@ const routes: Routes = [
     path: 'novo',
     loadChildren: () =>
       import('../new-room/new-room.module').then((m) => m.NewRoomModule),
-      data: { breadcrumb: 'Cadastrar quarto' },
-
+    data: { breadcrumb: 'Cadastrar quarto' },
+  },
+  {
+    path: 'atualizar/:id',
+    loadChildren: () =>
+      import('../edit-room/edit-room.module').then((m) => m.EditRoomModule),
+    data: { breadcrumb: 'Atualizar cadastro' },
   },
 ];
 
