@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>
+  <mat-icon class="material-icons-outlined" color="accent">{{ data.icon }}</mat-icon>
+  {{ data.title }}
+</h1>
+<p mat-dialog-content>{{ data.content }}</p>
+<div mat-dialog-actions align="center">
+  <button mat-raised-button (click)="onConfirm(true)" color="accent">
+    Confirmar
+  </button>
+  <button mat-stroked-button (click)="onConfirm(false)" color="warn">
+    Cancelar
+  </button>
+</div>
