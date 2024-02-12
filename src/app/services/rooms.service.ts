@@ -11,13 +11,12 @@ import { Room } from '../interfaces/Room';
 export class RoomsService {
   private readonly baseApiUrl = environment.baseApiURL;
   private endpoint = `${this.baseApiUrl}/rooms`;
-  private fakeEndpoint = 'http://localhost:3000/rooms';
 
   constructor(private http: HttpClient) {}
 
   findAll(page = 0, pageSize = 10) {
     return this.http
-      .get<PageResponse>('/assets/rooms.json', {
+      .get<PageResponse>(this.endpoint, {
         params: { page, size: pageSize },
       })
       .pipe(
@@ -39,7 +38,7 @@ export class RoomsService {
     return this.http.put<Room>(`${this.endpoint}/${id}`, room);
   }
 
-  delete(id: string){
-    return this.http.delete<Room>(`${this.endpoint}/${id}`)
+  delete(id: string) {
+    return this.http.delete<Room>(`${this.endpoint}/${id}`);
   }
 }
