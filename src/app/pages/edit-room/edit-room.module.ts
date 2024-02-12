@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NewRoomRoutingModule } from './new-room-routing.module';
-import { NewRoomComponent } from './new-room.component';
+import { EditRoomRoutingModule } from './edit-room-routing.module';
+import { EditRoomComponent } from './edit-room.component';
 import { AppMaterialModule } from '../../shared/modules/app-material/app-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { ComponentsModule } from '../../shared/modules/components/components.module';
-
 @NgModule({
-  declarations: [NewRoomComponent],
+  declarations: [EditRoomComponent],
   imports: [
     CommonModule,
-    NewRoomRoutingModule,
+    EditRoomRoutingModule,
     AppMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     BreadcrumbModule,
-    ComponentsModule
+    ComponentsModule,
   ],
-  providers: [BreadcrumbService]
+  providers: [BreadcrumbService],
 })
-export class NewRoomModule {}
+export class EditRoomModule {}

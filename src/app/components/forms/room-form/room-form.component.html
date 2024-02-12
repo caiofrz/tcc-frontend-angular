@@ -1,0 +1,79 @@
+<form [formGroup]="formRoom" #formDir="ngForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Número</mat-label>
+    <input matInput placeholder="01" required formControlName="number" />
+    <mat-error *ngIf="number.hasError('required')">
+      <mat-hint> O número do quarto é obrigatório </mat-hint>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de quarto</mat-label>
+    <mat-select required formControlName="type">
+      <mat-option></mat-option>
+      <mat-option *ngFor="let type of roomsType" [value]="type">
+        {{ type | titlecase }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="type.hasError('required')">
+      O tipo de quarto é obrigatório
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Número de camas</mat-label>
+    <input
+      matInput
+      placeholder="1"
+      required
+      type="number"
+      min="1"
+      formControlName="bedQuantity"
+    />
+    <mat-error *ngIf="bedQuantity.hasError('required')">
+      A quantidade de camas do quarto é obrigatória
+    </mat-error>
+    <mat-error *ngIf="bedQuantity.hasError('min')">
+      A quantidade de camas deve ser superior a 0
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <textarea
+      matInput
+      placeholder="Quarto simples com ar condicionado"
+      required
+      formControlName="description"
+    ></textarea>
+    <mat-error *ngIf="description.hasError('required')">
+      A descrição do quarto é obrigatória
+    </mat-error>
+    <mat-error *ngIf="description.hasError('maxLength')">
+      A descrição do quarto deve conter até 150 caracteres
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Valor da diária</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      min="0"
+      formControlName="dailyRate"
+      required
+    />
+    <span matTextPrefix>R$&nbsp;</span>
+    <mat-error *ngIf="dailyRate.hasError('required')">
+      O valor da diária é obrigatório
+    </mat-error>
+    <mat-error *ngIf="dailyRate.hasError('min')">
+      O valor da diária deve ser superior a R$0
+    </mat-error>
+  </mat-form-field>
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="submit()">
+      <strong>
+        {{ btnText }}
+      </strong>
+    </button>
+    <button mat-raised-button type="reset" (click)="cancel()">Cancelar</button>
+  </div>
+</form>

@@ -1,6 +1,6 @@
 export interface Room
 {
-  id?: string,
+  uid?: string,
   number: string,
   bedQuantity: number,
   description: string,
