@@ -1,6 +1,6 @@
 <h1 mat-dialog-title align="center" class="title">Quarto {{ data.number }}</h1>
 <h1 mat-dialog-title align="center">Tipo de quarto</h1>
-<div mat-dialog-content align="center">{{ data.type }}</div>
+<div mat-dialog-content align="center">{{ data.type | titlecase }}</div>
 <h1 mat-dialog-title align="center">Descrição</h1>
 <div mat-dialog-content align="center">{{ data.description }}</div>
 <h1 mat-dialog-title align="center">Número de camas</h1>

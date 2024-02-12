@@ -11,7 +11,7 @@
     <mat-select required formControlName="type">
       <mat-option></mat-option>
       <mat-option *ngFor="let type of roomsType" [value]="type">
-        {{ type }}
+        {{ type | titlecase }}
       </mat-option>
     </mat-select>
     <mat-error *ngIf="type.hasError('required')">
