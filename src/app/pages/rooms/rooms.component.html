@@ -47,14 +47,14 @@
           class="material-icons-outlined exit"
           color="primary"
           style="cursor: pointer; font-size: 1.5em"
-          [routerLink]="'atualizar/' + room.id"
+          [routerLink]="'atualizar/' + room.uid"
           >edit</mat-icon
         >
         <mat-icon
           class="material-icons-outlined exit"
           color="warn"
           style="cursor: pointer; font-size: 1.5em"
-          (click)="delete(room.id)"
+          (click)="delete(room.uid)"
           >delete</mat-icon
         >
       </td>
