@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
@@ -30,7 +29,6 @@ export class RoomsComponent {
     public dialog: MatDialog,
     private breadcrumbService: BreadcrumbService,
     private toastr: ToastrService,
-    private router: Router
   ) {
     this.breadcrumbService.set('@ChildOne', 'Child One');
     this.refresh();
@@ -78,7 +76,7 @@ export class RoomsComponent {
       this.service.delete(id).subscribe(
         (data) => {
           this.toastr.success('Quarto excluído com sucesso!');
-          this.router.navigate(['quartos']);
+          this.refresh();
         },
         (error) => {
           console.log(error);
