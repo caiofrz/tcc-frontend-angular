@@ -38,7 +38,7 @@ export class NewRoomComponent {
         },
         (error) => {
           console.log(error);
-          this.toastr.error(`Erro no cadastro do quarto!`);
+          this.toastr.error(`Erro no cadastro do quarto! ${error.error.message}`);
         }
       );
     });

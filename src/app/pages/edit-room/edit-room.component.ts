@@ -48,7 +48,7 @@ export class EditRoomComponent {
         },
         (error) => {
           console.log(error);
-          this.toastr.error('Erro na atualiazação do cadastro!');
+          this.toastr.error(`Erro na atualiazação do cadastro! ${error.error.message}`);
         }
       );
     });
