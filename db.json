@@ -1,0 +1,52 @@
+{
+  "rooms": [
+    {
+      "id": "e080",
+      "number": "1",
+      "type": "Casal",
+      "bedQuantity": 1,
+      "description": "Apartamento",
+      "dailyRate": 140
+    },
+    {
+      "id": "b08b",
+      "number": "1",
+      "type": "Casal",
+      "bedQuantity": 1,
+      "description": "Apartamento",
+      "dailyRate": 140
+    },
+    {
+      "id": "41d2",
+      "number": "1",
+      "type": "Casal",
+      "bedQuantity": 1,
+      "description": "qqqqqq",
+      "dailyRate": 140
+    },
+    {
+      "id": "d854",
+      "number": "",
+      "type": "",
+      "bedQuantity": "",
+      "description": "",
+      "dailyRate": ""
+    },
+    {
+      "id": "d911",
+      "number": "1",
+      "type": "Solteiro",
+      "bedQuantity": 3,
+      "description": "Apa",
+      "dailyRate": 80
+    },
+    {
+      "id": "3387",
+      "number": "",
+      "type": "",
+      "bedQuantity": "",
+      "description": "",
+      "dailyRate": ""
+    }
+  ]
+}

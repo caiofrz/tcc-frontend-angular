@@ -4,6 +4,7 @@
 
 //Import css from PrimeNg
 @import "primeng/resources/primeng.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 
@@ -54,7 +55,10 @@ body {
   background-color: #f6f7fb;
 }
 
-xng-breadcrumb {
+header {
   position: fixed;
   top: 12.5%;
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
 }
