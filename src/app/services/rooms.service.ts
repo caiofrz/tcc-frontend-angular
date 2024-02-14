@@ -21,7 +21,7 @@ export class RoomsService {
       })
       .pipe(
         first(),
-        tap((rooms) => console.log(rooms)),
+        tap(),
         delay(500)
       );
   }

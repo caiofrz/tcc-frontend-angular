@@ -24,10 +24,9 @@ export class EditRoomComponent {
     private dialog: MatDialog
   ) {
     this.roomId = this.route.snapshot.paramMap.get('id');
-    this.roomService.findOne(this.roomId!).subscribe((room) => {
-      this.room = room;
-      console.log(this.room);
-    });
+    this.roomService
+      .findOne(this.roomId!)
+      .subscribe((room) => (this.room = room));
   }
 
   async submitHandler(room: Room) {
@@ -42,7 +41,6 @@ export class EditRoomComponent {
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (!result) return;
 
-      console.log(room);
       this.roomService.update(room, this.roomId!).subscribe(
         (data) => {
           this.toastr.success('Quarto atualizado com sucesso!');

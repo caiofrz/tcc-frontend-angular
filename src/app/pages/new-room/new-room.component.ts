@@ -31,7 +31,6 @@ export class NewRoomComponent {
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (!result) return;
 
-      console.log(room);
       this.roomService.save(room).subscribe(
         (data) => {
           this.toastr.success('Quarto cadastrado com sucesso!');
@@ -39,7 +38,7 @@ export class NewRoomComponent {
         },
         (error) => {
           console.log(error);
-          this.toastr.error('Erro no cadastro do quarto!');
+          this.toastr.error(`Erro no cadastro do quarto!`);
         }
       );
     });
